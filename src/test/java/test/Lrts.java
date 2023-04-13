@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class LabelRightAutomationTest {
+public class Lrts {
 
 	private static WebDriver driver;
 	private static final String username = "lakshmiprasanna.k@tigeranalytics.com";
@@ -36,7 +36,7 @@ public class LabelRightAutomationTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@Before
@@ -62,6 +62,7 @@ public class LabelRightAutomationTest {
 	public void tearDown() throws Exception {
 		// logout
 		String logoutSuccessUrl = "https://dev-50823058.okta.com/oauth2/aus911jzb95Tj5tX35d7/v1/authorize?client_id=0oa6w8nsx9uSenFgu5d7&nonce=q2A6p0GH5Op8LL7XEuxpkJQYfnI5NBZIcYznIqOS6qHzsFQWp3A8XlzEVWWRFRZJ&redirect_uri=http%3A%2F%2F52.152.189.35%3A8080%2Fhome&response_type=id_token%20token&state=XaQAdZFEG9na0cC291ODKVoFu2QuZUkkHejV6Bu13yYPlyLG350pjwGWNvwg4rvQ&scope=openid%20email%20profile%20offline_access";
+		Thread.sleep(5000);
 		driver.findElement(By.className("dashboard-logout")).click();
 		if (driver.getCurrentUrl().equals(logoutSuccessUrl))
 			log.info("Logout Successful for username: " + username);
@@ -77,21 +78,21 @@ public class LabelRightAutomationTest {
 
 		// dropdown selection
 
-		WebElement location = driver.findElement(By.xpath("//div[@class='mat-form-field-infix ng-tns-c54-0']"));
-		Select select = new Select(location);
-		select.selectByIndex(4);
+//		WebElement location = driver.findElement(By.xpath("//div[@class='mat-form-field-infix ng-tns-c54-0']"));
+//		Select select = new Select(location);
+//		select.selectByIndex(4);
 
-//		location.click();
-//		
-//		WebElement chosenRegion = driver.findElement(By.xpath("//mat-option[@id ='mat-option-3']"));
-//		chosenRegion.click();
+//			location.click();
+//			
+//			WebElement chosenRegion = driver.findElement(By.xpath("//mat-option[@id ='mat-option-3']"));
+//			chosenRegion.click();
 
 		// button[@class='btn btn-primary adhoc-btn']
 
 		// new ad hoc review
-//		WebElement newAdHocReview = driver.findElement(By.className("adhoc-btn"));
-//		newAdHocReview.
-//		newAdHocReview.click();
+//			WebElement newAdHocReview = driver.findElement(By.className("adhoc-btn"));
+//			newAdHocReview.
+//			newAdHocReview.click();
 
 		Thread.sleep(3000);
 
