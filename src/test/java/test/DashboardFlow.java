@@ -69,46 +69,9 @@ public class DashboardFlow {
 			log.info("verification unsuccessful");
 		}
 		
+		Thread.sleep(6000);
+		
 
-	}
-	
-	public void Reviewed() throws InterruptedException {
-        
-		WebElement dashboard_project_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//app-root//app-get-started[@class='ng-star-inserted']/div/div/div[@class='col-8 mx-auto']//button[@class='btn btn-primary dashboard-btn']")));
-		js.executeScript("arguments[0].click();", dashboard_project_btn);
-
-		WebElement reviewed = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//app-root//app-homepage[@class='ng-star-inserted']/div[@class='dashboardpageContainer']//div[@class='tabsDiv']/button[2]/span[@class='tabheader']")));
-		js.executeScript("arguments[0].click();", reviewed);
-
-		WebElement search_bar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//app-root//app-homepage[@class='ng-star-inserted']/div[@class='dashboardpageContainer']/div[@class='maindiv']//app-dashboardtable[@class='ng-star-inserted']/div[@class='dashboardtablemain']//input[@type='text']")));
-		search_bar.sendKeys("neha");
-		js.executeScript("arguments[0].click();", search_bar);
-
-		List<WebElement> tabs = driver.findElements(By.xpath(
-				"/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[2]/table/tbody/tr"));
-
-		int i = 0;
-
-		for (; i < tabs.size(); i++) {
-			String data = tabs.get(i).getText();
-			String data2 = data.split(" ")[1];
-			if (data2.contains("neha")) {
-				System.out.println(data2);
-				continue;
-			} else {
-				break;
-			}
-		}
-
-		if (i == tabs.size()){
-			log.info("verification succesfull");
-		} else {
-			log.info("verification unsuccesfull");
-
-		}
 	}
 
 }

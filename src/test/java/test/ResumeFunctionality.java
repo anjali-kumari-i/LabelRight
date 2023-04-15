@@ -102,7 +102,7 @@ public class ResumeFunctionality {
 		js.executeScript("arguments[0].click();", dwnldButton);
 		log.info("download button is clicked");
 
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 	}
 	
 	private void nextBtnFlow() throws InterruptedException {
@@ -110,11 +110,9 @@ public class ResumeFunctionality {
 		log.info("next button method started");
 
 		WebElement resumeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[2]/table/tbody/tr[5]/td[11]/button")));
+				"/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[2]/table/tbody/tr[1]/td[11]/button")));
 		js.executeScript("arguments[0].click();", resumeButton);
 		log.info("resume button is clicked");
-		
-		Thread.sleep(2000);
 
 		WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"/html/body/app-root/main/app-verify/div/div/div/div[1]/app-side-button-panel/div/div[1]/div[2]/div[1]/button")));
@@ -130,7 +128,7 @@ public class ResumeFunctionality {
 		js.executeScript("arguments[0].click();", dwnldButton);
 		log.info("download button is clicked");
 		
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 	}
 
