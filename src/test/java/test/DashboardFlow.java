@@ -28,7 +28,7 @@ public class DashboardFlow {
 
 	public void ReviewInProgress() throws InterruptedException {
 		
-		String search = "lakshmi";
+		String search = "sid";
 
 		WebElement dashboardBtn = wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("/html/body/app-root/main/app-get-started/div/div/div/div/div[4]/button[1]")));
@@ -40,8 +40,14 @@ public class DashboardFlow {
 				By.xpath("/html/body/app-root/main/app-homepage/div/div/div[1]/button[1]")));
 		js.executeScript("arguments[0].click();", reviewInProgress);
 		
-		WebElement searchTab = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[1]/div[3]/input")));
-		js.executeScript("arguments[0].value = '" +search + "';", searchTab);
+//		WebElement searchTab = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[1]/div[3]/input")));
+//		js.executeScript("arguments[0].click();", searchTab);
+//		js.executeScript("arguments[0].value = '" +search + "';", searchTab);
+		
+		WebElement search_bar = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//app-root//app-homepage[@class='ng-star-inserted']/div[@class='dashboardpageContainer']/div[@class='maindiv']//app-dashboardtable[@class='ng-star-inserted']/div[@class='dashboardtablemain']//input[@type='text']")));
+		search_bar.sendKeys(""+search);
+		js.executeScript("arguments[0].click();", search_bar);
 		
 		Thread.sleep(3000);
 		

@@ -45,39 +45,14 @@ public class ResumeFunctionality {
 		String statusData = rowdata.split(".jpg")[1].split("Resume")[0].trim();
 		log.info(statusData);
 
-		if (statusData.equals("Results Generation")) {
+		if (statusData.equals("Results Generation" ) ) {
 			log.info("save results method invoked");
 			saveResultsFlow();
 		}
 
-		if (statusData.equals("Grey PDF Generation")) {
+		if ( statusData.equals("Grey PDF Generation" ) ) {
 			log.info("next_btn method invoked");
 			nextBtnFlow();
-		}
-
-		if (statusData.equals("Error Occured")) {
-			log.info(" method invoked");
-			saveResultsFlow();
-		}
-
-		if (statusData.equals("Project Created")) {
-			log.info("save results method invoked");
-			saveResultsFlow();
-		}
-
-		if (statusData.equals("Artwork Processing")) {
-			log.info("save results method invoked");
-			saveResultsFlow();
-		}
-
-		if (statusData.equals("LID Processing")) {
-			log.info("save results method invoked");
-			saveResultsFlow();
-		}
-
-		if (statusData.equals("LID Extraction")) {
-			log.info("save results method invoked");
-			saveResultsFlow();
 		}
 
 		Thread.sleep(3000);
@@ -98,40 +73,38 @@ public class ResumeFunctionality {
 		js.executeScript("arguments[0].click();", saveButton);
 		log.info("save button is clicked");
 
-		WebElement dwnldButton = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("/html/body/app-root/main/app-all-done/div/div/div[2]/div/div[3]/div[1]/a")));
+		WebElement dwnldButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/main/app-all-done/div/div/div[2]/div/div[3]/div[1]/a")));
 		js.executeScript("arguments[0].click();", dwnldButton);
 		log.info("download button is clicked");
 
 		Thread.sleep(3000);
 	}
-
+	
 	private void nextBtnFlow() throws InterruptedException {
-
+		
 		log.info("next button method started");
 
 		WebElement resumeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"/html/body/app-root/main/app-homepage/div/div/div[2]/app-dashboardtable/div/div[2]/table/tbody/tr[5]/td[11]/button")));
 		js.executeScript("arguments[0].click();", resumeButton);
 		log.info("resume button is clicked");
-
+		
 		Thread.sleep(2000);
 
 		WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"/html/body/app-root/main/app-verify/div/div/div/div[1]/app-side-button-panel/div/div[1]/div[2]/div[1]/button")));
 		js.executeScript("arguments[0].click();", nextButton);
 		log.info("next button is clicked");
-
+		
 		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 				"/html/body/app-root/main/app-results/div/div/div[1]/app-side-button-panel/div/div/div[2]/div[1]/button")));
 		js.executeScript("arguments[0].click();", saveButton);
 		log.info("save button is clicked");
-
-		WebElement dwnldButton = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("/html/body/app-root/main/app-all-done/div/div/div[2]/div/div[3]/div[1]/a")));
+		
+		WebElement dwnldButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/main/app-all-done/div/div/div[2]/div/div[3]/div[1]/a")));
 		js.executeScript("arguments[0].click();", dwnldButton);
 		log.info("download button is clicked");
-
+		
 		Thread.sleep(3000);
 
 	}
